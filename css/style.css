@@ -7,7 +7,10 @@
 :root {
   --white: #fff;
   --purple: #7d00eb;
+  --deep-brown: #bf8260;
+  --warmth: #f6efec;
   --general-padding: 1.25rem;
+  --lato-font: "Lato", sans-serif;
 }
 
 body {
@@ -32,28 +35,28 @@ header {
   padding: 20px 0;
 }
 
-header > .logo > img {
+header .logo img {
   width: 76px;
   object-fit: contain;
 }
 
-header > nav {
+header nav {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-header > nav > .bTickets {
+header nav .bTickets {
   color: var(--purple);
   font-weight: 800;
   font-size: 0.75rem;
 }
 
-header > nav > .bTickets > i {
+header nav .bTickets i {
   margin-left: 8px;
 }
 
-header > nav > .menu {
+header nav .menu {
   border: none;
   background: none;
   font-size: 1.75rem;
@@ -66,20 +69,20 @@ header > nav > .menu {
   margin-top: 25px;
 }
 
-.hero > .hero-imgOne {
+.hero .hero-imgOne {
   display: grid;
   justify-self: center;
   width: 272px;
   height: 212px;
 }
 
-.hero > .hero-imgOne > img {
+.hero .hero-imgOne img {
   width: 100%;
   object-fit: contain;
   transition: 0.5s;
 }
 
-.hero > .hero-imgTwo {
+.hero .hero-imgTwo {
   position: relative;
   top: -64px;
   z-index: -1;
@@ -90,23 +93,23 @@ header > nav > .menu {
   justify-content: center;
 }
 
-.about > .about--heading {
+.about .about--heading {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.about > .about--heading > p {
+.about .about--heading p {
   word-spacing: 8px;
   font-weight: 500;
   color: var(--purple);
   margin-bottom: 32px;
 }
 
-.about > .about--heading > h2 {
+.about .about--heading h2 {
   line-height: 2;
 }
 
-.about > .about--main {
+.about .about--main {
   display: grid;
   gap: 30px;
   border: 4px solid var(--purple);
@@ -120,7 +123,7 @@ header > nav > .menu {
   padding: 40px 0px;
 }
 
-.main--heading > .upperText {
+.main--heading .upperText {
   display: flex;
   justify-content: space-between;
   font-weight: 700;
@@ -128,17 +131,17 @@ header > nav > .menu {
   color: var(--purple);
 }
 
-.main--heading > .middleText {
+.main--heading .middleText {
   text-align: center;
   font-size: 2.5rem; //40px
 }
-.main--heading > .middleText > .focusText {
+.main--heading .middleText .focusText {
   position: relative;
   font-weight: 700;
   color: var(--purple);
 }
 
-.main--heading > .middleText > .focusText::before {
+.main--heading .middleText .focusText::before {
   position: absolute;
   width: 10.9375rem;
   height: 3px;
@@ -148,7 +151,7 @@ header > nav > .menu {
 }
 
 .main--texts {
-  font-family: "Lato", sans-serif;
+  font-family: var(--lato-font);
   line-height: 1.8;
   font-size: 1.25rem;
   font-weight: 700;
@@ -158,14 +161,14 @@ header > nav > .menu {
   border: none;
 }
 
-.main--texts > footer {
+.main--texts footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 70px;
 }
 
-.main--texts > footer > img {
+.main--texts footer img {
   width: 74px;
 }
 
@@ -173,4 +176,34 @@ header > nav > .menu {
   display: flex;
   gap: 20px;
   font-size: 1rem;
+}
+
+.credits--container {
+  display: grid;
+  gap: 50px;
+  background-color: var(--warmth);
+}
+
+.credits--intro {
+}
+
+.credits--intro p {
+  /* font-weight: 500; */
+  font-family: var(--lato-font);
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--deep-brown);
+}
+.credits--intro .highlight {
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 0.5px var(--deep-brown);
+}
+
+.credits--intro .highlight-little {
+  font-weight: 300;
+}
+
+.credits--intro hr {
+  background-color: var(--deep-brown);
 }
