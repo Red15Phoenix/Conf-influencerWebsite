@@ -15,7 +15,7 @@
 
 body {
   font-family: "Cabinet Grotesk", sans-serif;
-  min-width: 100vw;
+  min-height: 100vh;
 }
 
 /* Disable default link styles */
@@ -182,6 +182,7 @@ header nav .menu {
   display: grid;
   gap: 50px;
   background-color: var(--warmth);
+  width: 100%;
 }
 
 .credits--intro {
@@ -211,4 +212,23 @@ header nav .menu {
 
 .cI--texts {
   margin-top: 30px;
+}
+
+.carousel--wrapper {
+  width: 100%;
+  padding-right: 0;
+}
+
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 2));
+  list-style: none;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.carousel .card img {
+  width: 100%;
+  object-fit: cover;
 }
