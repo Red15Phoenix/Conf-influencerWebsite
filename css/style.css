@@ -6,14 +6,18 @@
 
 :root {
   --white: #fff;
+  --warmth: #f6efec;
+  --alice-blue: #eaf0f2;
   --purple: #7d00eb;
   --deep-brown: #bf8260;
-  --warmth: #f6efec;
+
   --general-padding: 1.25rem;
   --lato-font: "Lato", sans-serif;
 }
 
 body {
+  display: grid;
+  gap: 50px;
   font-family: "Cabinet Grotesk", sans-serif;
   min-height: 100vh;
 }
@@ -179,10 +183,10 @@ header nav .menu {
 }
 
 .credits--container {
-  display: grid;
-  gap: 50px;
+  position: relative;
   background-color: var(--warmth);
   width: 100%;
+  overflow: hidden;
 }
 
 .credits--intro {
@@ -215,8 +219,18 @@ header nav .menu {
 }
 
 .carousel--wrapper {
+  grid-row: 3; /* target the second row (index starts at 1) */
+  margin-top: 0; /* add a margin to the top of the selected row to increase the gap */
+  margin-bottom: 10px;
   width: 100%;
+  padding-left: var(--general-padding);
   padding-right: 0;
+}
+
+.carousel--heading {
+  color: var(--deep-brown);
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .carousel {
@@ -224,11 +238,98 @@ header nav .menu {
   grid-auto-flow: column;
   grid-auto-columns: calc((100% / 2));
   list-style: none;
-  gap: 20px;
-  overflow: hidden;
+  gap: 42px;
+  overflow: auto;
+  overflow-y: hidden;
 }
 
-.carousel .card img {
+.carousel::-webkit-scrollbar {
+  width: 0;
+}
+
+.card .card--img {
+  position: relative;
+  margin-bottom: 10px;
+}
+.card--img img {
   width: 100%;
   object-fit: cover;
+}
+.card--img .tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  left: 10px;
+  width: 84px;
+  height: 32px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--purple);
+}
+
+/* Review later */
+.card--img .tag--orange {
+  width: 122px;
+  background-color: orangered;
+}
+
+.cards .h5,
+.card .h2 {
+  font-family: var(--lato-font);
+}
+
+.organizers--container {
+  display: grid;
+  grid-template-columns: repeat(1fr 1fr);
+  gap: 40px;
+}
+
+.oc--Heading p {
+  font-size: 1.5rem; //24px
+}
+.oc--Heading h1 {
+  position: relative;
+  font-size: 2rem; //32px
+}
+
+.oc--Heading h1::after {
+  position: absolute;
+  content: url("../img/arrow.svg");
+  top: 15px;
+}
+
+.organizers---wrapper {
+  background-color: var(--alice-blue);
+}
+
+.organizers--card {
+  display: grid;
+  gap: 16px;
+}
+
+.organizer--name {
+  font-size: 2rem;
+}
+
+/* .organizer--info {
+  display: grid;
+  gap: 20px;
+} */
+
+.organizerTitle--wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.organizerTitle--wrapper p {
+  font-size: 1.875rem;
+}
+
+.organizer--about {
+  font-size: 0.875rem; //14px
+  margin: 100px;
 }
