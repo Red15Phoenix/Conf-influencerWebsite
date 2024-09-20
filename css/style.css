@@ -11,7 +11,7 @@
   --purple: #7d00eb;
   --deep-brown: #bf8260;
 
-  --general-padding: 1.25rem;
+  --general-padding: 1.5rem; /* 24px*/
   --lato-font: "Lato", sans-serif;
 }
 
@@ -26,6 +26,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+a > span {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .g-padding {
@@ -50,13 +55,17 @@ header nav {
   gap: 24px;
 }
 
-header nav .bTickets {
+nav .bTickets {
   color: var(--purple);
   font-weight: 800;
   font-size: 0.75rem;
 }
 
-header nav .bTickets i {
+.bTickets * {
+  text-decoration: none;
+}
+
+.bTickets i {
   margin-left: 8px;
 }
 
@@ -137,7 +146,7 @@ header nav .menu {
 
 .main--heading .middleText {
   text-align: center;
-  font-size: 2.5rem; //40px
+  font-size: 2.5rem; /* 40px */
 }
 .main--heading .middleText .focusText {
   position: relative;
@@ -288,11 +297,11 @@ header nav .menu {
 }
 
 .oc--Heading p {
-  font-size: 1.5rem; //24px
+  font-size: 1.5rem; /*24px*/
 }
 .oc--Heading h1 {
   position: relative;
-  font-size: 2rem; //32px
+  font-size: 2rem; /*32px*/
 }
 
 .oc--Heading h1::after {
@@ -322,7 +331,7 @@ header nav .menu {
 .organizerTitle--wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .organizerTitle--wrapper p {
@@ -330,6 +339,36 @@ header nav .menu {
 }
 
 .organizer--about {
-  font-size: 0.875rem; //14px
-  margin: 100px;
+  margin-top: 1rem;
+  line-height: 1.8;
+  font-size: 0.875rem; /* 14px */
+}
+
+.organizers--list {
+  position: relative;
+  display: flex;
+  gap: 6px;
+}
+
+.organizers--list::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 18%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, var(--alice-blue));
+}
+
+.organizers--list a {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 10px;
+  right: 0;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--purple);
+  text-wrap: nowrap;
+  z-index: 1;
 }
