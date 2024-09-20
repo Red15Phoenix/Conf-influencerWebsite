@@ -12,6 +12,9 @@
   --deep-brown: #bf8260;
 
   --general-padding: 1.5rem; /* 24px*/
+  --font-size-14: 0.875rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
   --lato-font: "Lato", sans-serif;
 }
 
@@ -273,7 +276,7 @@ header nav .menu {
   left: 10px;
   width: 84px;
   height: 32px;
-  font-size: 0.875rem;
+  font-size: var(--font-size-14);
   font-weight: bold;
   color: var(--white);
   background-color: var(--purple);
@@ -291,23 +294,38 @@ header nav .menu {
 }
 
 .organizers--container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(1fr 1fr);
-  gap: 40px;
+  /* gap: 40px; */
+  padding-bottom: 40px;
 }
 
 .oc--Heading p {
-  font-size: 1.5rem; /*24px*/
+  font-size: var(--font-size-24); /*24px*/
 }
 .oc--Heading h1 {
   position: relative;
-  font-size: 2rem; /*32px*/
+  font-size: var(--font-size-32);
 }
 
 .oc--Heading h1::after {
   position: absolute;
   content: url("../img/arrow.svg");
   top: 15px;
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  font-size: 1.25rem; /* 20px */
+  color: var(--purple);
+}
+
+.readMore i {
+  margin-left: 8px;
 }
 
 .organizers---wrapper {
@@ -320,7 +338,7 @@ header nav .menu {
 }
 
 .organizer--name {
-  font-size: 2rem;
+  font-size: var(--font-size-32);
 }
 
 /* .organizer--info {
@@ -341,7 +359,7 @@ header nav .menu {
 .organizer--about {
   margin-top: 1rem;
   line-height: 1.8;
-  font-size: 0.875rem; /* 14px */
+  font-size: var(--font-size-14);
 }
 
 .organizers--list {
@@ -366,9 +384,29 @@ header nav .menu {
   align-items: center;
   top: 10px;
   right: 0;
-  font-size: 0.875rem;
+  font-size: var(--font-size-14);
   font-weight: bold;
   color: var(--purple);
   text-wrap: nowrap;
   z-index: 1;
+}
+
+.become--sponsor {
+  display: grid;
+  gap: 16px;
+}
+
+.become--sponsor h1 {
+  width: 50%;
+  font-size: var(--font-size-32);
+  text-wrap: balance;
+}
+
+.become--sponsor p {
+  line-height: 1.8;
+  font-size: var(--font-size-14);
+}
+
+.become--sponsor a {
+  color: var(--purple);
 }
