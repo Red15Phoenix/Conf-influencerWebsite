@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -26,12 +27,13 @@
   --font-size-30: 1.875rem;
   --font-size-32: 2rem;
   --lato-font: "Lato", sans-serif;
+  --cabinet-font: "Cabinet Grotesk", sans-serif;
 }
 
 body {
   display: grid;
   gap: 50px;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: var(--cabinet-font);
   min-height: 100vh;
 }
 
@@ -41,7 +43,7 @@ a {
   color: inherit;
 }
 
-a > span {
+a span {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -523,4 +525,85 @@ header nav .menu {
 
 .pricing--card-online h2 {
   z-index: 2;
+}
+
+.footer {
+  position: relative;
+  font-family: var(--lato-font);
+  background-color: var(--warmth);
+}
+.scroll-top {
+  position: absolute;
+  top: 3rem;
+  right: 24px;
+  color: var(--purple);
+  font-size: var(--font-size-32);
+}
+.footer > .g-padding {
+  padding: 3rem var(--general-padding);
+}
+.footer h2 {
+  font-size: var(--font-size-24);
+}
+.footer--links--main-wrapper {
+  display: grid;
+  /* grid-template-columns: repeat(); */
+  gap: 40px;
+}
+
+.footer--links-header p {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+.footer--links-header h2 {
+  color: var(--purple);
+}
+
+.footer--links-wrapper {
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+}
+.footer--links {
+  display: grid;
+  gap: 10px;
+}
+.footer--links ul {
+  display: contents;
+  font-size: 0.75rem;
+}
+
+.footer--links li {
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.footer--about h2 {
+  margin-bottom: 20px;
+}
+.footer--about p {
+  text-wrap: balance;
+  line-height: var(--line-height-1-8);
+  font-family: var(--cabinet-font);
+  font-size: var(--font-size-14);
+}
+
+.socialsnOthers {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.socialsnCopyright p {
+  margin-top: 20px;
+  font-size: var(--font-size-14);
+}
+
+.socials--links {
+  display: flex;
+  gap: 30px;
+  font-size: 1rem;
+  color: var(--purple);
 }
