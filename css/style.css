@@ -26,8 +26,10 @@
   --font-size-24: 1.5rem;
   --font-size-30: 1.875rem;
   --font-size-32: 2rem;
+  --font-size-40: 2.5rem;
   --lato-font: "Lato", sans-serif;
   --cabinet-font: "Cabinet Grotesk", sans-serif;
+  --global-grid-column: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 body {
@@ -63,18 +65,24 @@ header {
   padding: 20px 0;
 }
 
-header .logo img {
+.logo img {
   width: 76px;
   object-fit: contain;
 }
 
-header nav {
+nav {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-nav .bTickets {
+.nav--links {
+  display: none;
+  gap: 24px;
+  text-transform: uppercase;
+}
+
+.bTickets {
   color: var(--purple);
   font-weight: 800;
   font-size: 0.75rem;
@@ -88,27 +96,33 @@ nav .bTickets {
   margin-left: 8px;
 }
 
-header nav .menu {
+.menu {
   border: none;
   background: none;
   font-size: 1.75rem;
 }
 
 .hero {
+  position: relative;
   display: grid;
-  justify-content: center;
+  grid-template-columns: var(--global-grid-column);
+  justify-items: center;
   align-items: center;
   margin-top: 25px;
 }
 
 .hero .hero-imgOne {
-  display: grid;
-  justify-self: center;
-  width: 272px;
-  height: 212px;
+  position: relative;
+  display: flex;
+  width: 17rem; /* 272px */
+  height: 13.25rem; /* 212px */
 }
 
-.hero .hero-imgOne img {
+.hero-arrow {
+  display: none;
+}
+
+.hero .hero-imgOne img:last-child {
   width: 100%;
   object-fit: contain;
   transition: 0.5s;
@@ -120,29 +134,37 @@ header nav .menu {
   z-index: -1;
 }
 
+.vr {
+  display: none;
+  position: absolute;
+  width: 200px;
+  top: 0;
+}
+
 .about--container {
   display: grid;
   justify-content: center;
 }
 
-.about .about--heading {
+.about--heading {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.about .about--heading p {
+.about--heading p {
   word-spacing: 8px;
   font-weight: 500;
   color: var(--purple);
   margin-bottom: 32px;
 }
 
-.about .about--heading h2 {
+.about--heading h2 {
   line-height: 2;
 }
 
-.about .about--main {
+.about--main {
   display: grid;
+  grid-template-columns: var(--global-grid-column);
   gap: 30px;
   border: 4px solid var(--purple);
 }
@@ -157,7 +179,7 @@ header nav .menu {
 
 .main--heading .upperText {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-weight: 700;
   gap: 12px;
   color: var(--purple);
@@ -184,7 +206,7 @@ header nav .menu {
 
 .main--texts {
   font-family: var(--lato-font);
-  line-height: 1.8;
+  line-height: var(--line-height-1-8);
   font-size: 1.25rem;
   font-weight: 700;
   padding: 20px 10px;
@@ -217,8 +239,8 @@ header nav .menu {
   overflow: hidden;
 }
 
-.credits--intro {
-}
+/* .credits--intro {
+} */
 
 .credits--intro .cI--heading {
   /* font-weight: 500; */
@@ -249,12 +271,11 @@ header nav .menu {
 }
 
 .carousel--wrapper {
-  grid-row: 3; /* target the second row (index starts at 1) */
-  margin-top: 0; /* add a margin to the top of the selected row to increase the gap */
+  /* target the second row (index starts at 1) */
+  /* margin-top: 0; add a margin to the top of the selected row to increase the gap */
   margin-bottom: 10px;
   width: 100%;
-  padding-left: var(--general-padding);
-  padding-right: 0;
+  padding: 0 0 var(--general-padding) var(--general-padding);
 }
 
 .carousel--heading {
@@ -269,6 +290,7 @@ header nav .menu {
   grid-auto-columns: calc((100% / 2));
   list-style: none;
   gap: 42px;
+  padding-right: 1rem;
   overflow: auto;
   overflow-y: hidden;
 }
@@ -314,11 +336,14 @@ header nav .menu {
 .organizers--container {
   position: relative;
   display: grid;
-  /* grid-template-columns: repeat(1fr 1fr); */
+  grid-template-columns: var(--global-grid-column);
   /* gap: 40px; */
   padding-bottom: 40px;
 }
 
+.oc--wrapper {
+  padding: var(--general-padding);
+}
 .oc--Heading p {
   font-size: var(--font-size-24); /*24px*/
 }
@@ -337,6 +362,7 @@ header nav .menu {
   align-items: center;
   position: absolute;
   bottom: 0;
+  text-wrap: nowrap;
   font-size: 1.25rem; /* 20px */
   color: var(--purple);
 }
@@ -352,6 +378,7 @@ header nav .menu {
 .organizers--card {
   display: grid;
   gap: 16px;
+  padding: var(--general-padding);
 }
 
 /* .organizer--info {
@@ -406,12 +433,13 @@ header nav .menu {
 
 .sponsor--container {
   display: grid;
-  /* grid-template-columns: repeat(1fr 1fr); */
+  grid-template-columns: var(--global-grid-column);
   gap: 50px;
 }
 
 .become--sponsor {
   display: grid;
+  align-content: start;
   gap: 16px;
 }
 
@@ -436,6 +464,7 @@ header nav .menu {
 
 .pricingCard--wrapper {
   display: grid;
+  grid-template-columns: var(--global-grid-column);
   gap: 12px;
 }
 
@@ -532,6 +561,7 @@ header nav .menu {
   font-family: var(--lato-font);
   background-color: var(--warmth);
 }
+
 .scroll-top {
   position: absolute;
   top: 3rem;
@@ -539,15 +569,18 @@ header nav .menu {
   color: var(--purple);
   font-size: var(--font-size-32);
 }
+
 .footer > .g-padding {
   padding: 3rem var(--general-padding);
 }
+
 .footer h2 {
   font-size: var(--font-size-24);
 }
+
 .footer--links--main-wrapper {
   display: grid;
-  /* grid-template-columns: repeat(); */
+  grid-template-columns: var(--global-grid-column);
   gap: 40px;
 }
 
@@ -568,7 +601,9 @@ header nav .menu {
 .footer--links {
   display: grid;
   gap: 10px;
+  text-wrap: nowrap;
 }
+
 .footer--links ul {
   display: contents;
   font-size: 0.75rem;
@@ -577,6 +612,7 @@ header nav .menu {
 .footer--links li {
   list-style: none;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .footer--about h2 {
@@ -606,4 +642,146 @@ header nav .menu {
   gap: 30px;
   font-size: 1rem;
   color: var(--purple);
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --general-padding: 3rem;
+  }
+
+  .nav--links {
+    display: flex;
+  }
+
+  .bTickets {
+    font-size: 1rem;
+  }
+
+  .bTickets:has(i) > span {
+    text-decoration: underline;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hero .hero-imgOne {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-arrow {
+    display: inline-block;
+    position: relative;
+    height: 150px;
+    top: 200px;
+    border-style: none;
+  }
+  .hero .hero-imgTwo {
+    top: 0;
+  }
+
+  .vr {
+    display: block;
+  }
+
+  .about--heading p {
+    margin-bottom: 10px;
+  }
+
+  .main--texts {
+    text-wrap: wraps;
+    padding: 30px 25px;
+  }
+
+  .main--heading {
+    align-content: center;
+    gap: 30px;
+    padding: 30px 10px;
+  }
+
+  .about .about--main {
+    gap: 0;
+  }
+  .main--heading .upperText {
+    font-size: 1.25rem;
+  }
+  /* 
+  .main--texts {
+    /* font-size: 1rem; 
+  } */
+
+  .carousel--heading {
+    font-size: 1.5rem;
+  }
+
+  .carousel {
+    grid-auto-columns: calc((80% / 2));
+  }
+
+  .organizers--container {
+    gap: 50px;
+    padding: var(--general-padding);
+  }
+
+  .organizers--container h1 {
+    font-size: var(--font-size-40);
+  }
+
+  .oc--wrapper {
+    display: grid;
+    align-content: space-between;
+    padding: 1.5rem;
+    background-color: var(--alice-blue);
+  }
+
+  .oc--Heading p {
+    font-size: var(--font-size-30);
+  }
+
+  .oc--Heading h1::after {
+    content: url("../img/arrow2.svg");
+    top: 25px;
+  }
+
+  .readMore {
+    position: relative;
+    /* font-size: var(--font-size-24); */
+  }
+
+  .organizers---wrapper {
+    background-color: transparent;
+  }
+
+  .organizers--card {
+    padding: 0;
+  }
+
+  .organizer--about {
+    font-size: 1rem;
+  }
+
+  .organizers--list::after {
+    right: 20%;
+    background: linear-gradient(to right, transparent, var(--white));
+  }
+
+  /* Footer */
+
+  .footer--links--main-wrapper {
+    grid-template-columns: 40% 60%;
+    gap: 0;
+  }
+
+  .footer--links-wrapper {
+    flex-direction: row;
+  }
+
+  .socialsnOthers {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 30px;
+    gap: 0;
+  }
 }
